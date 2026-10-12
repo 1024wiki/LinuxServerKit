@@ -1,0 +1,7 @@
+build/
+*.user
+CMakeLists.txt.user*
+.vscode/
+*.o
+*.a
+*.so

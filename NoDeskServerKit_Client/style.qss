@@ -1,0 +1,366 @@
+/* ===================================================================
+ * NoDeskServerKit 现代深色科技风样式表 (Dark Modern Fluent Theme)
+ * 适配 Qt 6 Widgets：登录窗口、信令管控树状图、文件树、弹窗与菜单
+ * =================================================================== */
+
+/* 全局基底 */
+QWidget {
+    background-color: #1a1b20;
+    color: #e4e6eb;
+    font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+    font-size: 13px;
+    selection-background-color: #2563eb;
+    selection-color: #ffffff;
+}
+
+/* 顶级窗口 */
+QMainWindow, QDialog {
+    background-color: #131418;
+}
+
+/* 文本与标签 */
+QLabel {
+    background: transparent;
+    color: #9ca3af;
+}
+
+QLabel#title_label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+QLabel#subtitle_label {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+/* 分割线 */
+Line {
+    background-color: #2b2d35;
+    border: none;
+    height: 1px;
+}
+
+/* 卡片容器面板 */
+QFrame#card_frame, QWidget#card_widget {
+    background-color: #202228;
+    border: 1px solid #2d3039;
+    border-radius: 10px;
+}
+
+/* 输入框 */
+QLineEdit {
+    background-color: #16171c;
+    border: 1px solid #323642;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #f3f4f6;
+    font-size: 13px;
+}
+
+QLineEdit:hover {
+    border: 1px solid #475569;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3b82f6;
+    background-color: #1a1d24;
+}
+
+QLineEdit:disabled {
+    background-color: #121316;
+    color: #4b5563;
+    border: 1px solid #22252d;
+}
+
+/* 按钮通用 */
+QPushButton {
+    background-color: #2a2d36;
+    border: 1px solid #373b47;
+    border-radius: 6px;
+    color: #e5e7eb;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+QPushButton:hover {
+    background-color: #353945;
+    border-color: #4b5162;
+    color: #ffffff;
+}
+
+QPushButton:pressed {
+    background-color: #1f2229;
+    border-color: #2a2e39;
+}
+
+QPushButton:disabled {
+    background-color: #191b21;
+    color: #4b5563;
+    border-color: #242730;
+}
+
+/* 主要操作按钮 (强调蓝) */
+QPushButton#primary_btn, QPushButton#pushButton_remotecontrol {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #2563eb, stop:1 #3b82f6);
+    border: 1px solid #1d4ed8;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+QPushButton#primary_btn:hover, QPushButton#pushButton_remotecontrol:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #1d4ed8, stop:1 #2563eb);
+    border-color: #3b82f6;
+}
+
+QPushButton#primary_btn:pressed, QPushButton#pushButton_remotecontrol:pressed {
+    background-color: #1e40af;
+    border-color: #1e3a8a;
+}
+
+/* 次要/断开/退出按钮 (暗灰红幽灵按钮) */
+QPushButton#disconnect_pushButton {
+    background-color: transparent;
+    border: 1px solid #4b2d35;
+    color: #f87171;
+}
+
+QPushButton#disconnect_pushButton:hover {
+    background-color: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    color: #fca5a5;
+}
+
+QPushButton#disconnect_pushButton:pressed {
+    background-color: rgba(239, 68, 68, 0.25);
+}
+
+/* 危险控制按钮 (远程锁机) */
+QPushButton#lock_pushButton {
+    background-color: #382025;
+    border: 1px solid #5a2e38;
+    color: #fca5a5;
+}
+
+QPushButton#lock_pushButton:hover {
+    background-color: #4c2630;
+    border-color: #ef4444;
+    color: #ffffff;
+}
+
+/* 安全解除按钮 (远程解锁) */
+QPushButton#unlock_pushButton {
+    background-color: #1e2e28;
+    border: 1px solid #2b453a;
+    color: #86efac;
+}
+
+QPushButton#unlock_pushButton:hover {
+    background-color: #253d33;
+    border-color: #22c55e;
+    color: #ffffff;
+}
+
+/* 功能按钮 (远程监控) */
+QPushButton#view_pushButton {
+    background-color: #232a3d;
+    border: 1px solid #334155;
+    color: #93c5fd;
+}
+
+QPushButton#view_pushButton:hover {
+    background-color: #2b3650;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* 刷新目录按钮 */
+QPushButton#file_pushButton {
+    background-color: #20242f;
+    border: 1px solid #323b4e;
+    color: #cbd5e1;
+}
+
+QPushButton#file_pushButton:hover {
+    background-color: #293040;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* 返回主界面按钮 */
+QPushButton#returnmian_pushButton {
+    background-color: #22252e;
+    border: 1px solid #323744;
+    color: #94a3b8;
+}
+
+QPushButton#returnmian_pushButton:hover {
+    background-color: #2d313d;
+    border-color: #475569;
+    color: #ffffff;
+}
+
+/* 树状视图 QTreeView (目录树与文件列表) */
+QTreeView {
+    background-color: #16171c;
+    border: 1px solid #282b34;
+    border-radius: 8px;
+    padding: 4px;
+    outline: none;
+    color: #e5e7eb;
+    alternate-background-color: #1a1c22;
+}
+
+QTreeView:focus {
+    border: 1px solid #3b82f6;
+}
+
+QTreeView::item {
+    height: 30px;
+    border-radius: 4px;
+    padding-left: 6px;
+    color: #d1d5db;
+}
+
+QTreeView::item:hover {
+    background-color: #252832;
+    color: #ffffff;
+}
+
+QTreeView::item:selected {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+QTreeView::branch {
+    background: transparent;
+}
+
+/* 树视图表头 QHeaderView */
+QHeaderView {
+    background-color: #1a1c22;
+    border: none;
+}
+
+QHeaderView::section {
+    background-color: #1f2128;
+    color: #9ca3af;
+    padding: 6px 10px;
+    border: none;
+    border-right: 1px solid #282b34;
+    border-bottom: 1px solid #282b34;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+QHeaderView::section:hover {
+    background-color: #272a34;
+    color: #f3f4f6;
+}
+
+/* 极简精致滚动条 QScrollBar */
+QScrollBar:vertical {
+    background: #141519;
+    width: 8px;
+    margin: 0;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #323642;
+    min-height: 24px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #4b5264;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: transparent;
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #141519;
+    height: 8px;
+    margin: 0;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #323642;
+    min-width: 24px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #4b5264;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal,
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: transparent;
+    width: 0px;
+}
+
+/* 右键上下文菜单 QMenu */
+QMenu {
+    background-color: #202228;
+    border: 1px solid #323642;
+    border-radius: 8px;
+    padding: 6px;
+    color: #e5e7eb;
+}
+
+QMenu::item {
+    padding: 7px 24px 7px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+QMenu::item:hover, QMenu::item:selected {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #2f323c;
+    margin: 4px 6px;
+}
+
+/* 弹窗与对话框 QMessageBox */
+QMessageBox {
+    background-color: #1a1b20;
+    border: 1px solid #2d3039;
+    border-radius: 10px;
+}
+
+QMessageBox QLabel {
+    color: #e5e7eb;
+    font-size: 13px;
+}
+
+QMessageBox QPushButton {
+    min-width: 80px;
+    min-height: 28px;
+}
+
+/* 进度条 QProgressBar & QProgressDialog */
+QProgressBar {
+    background-color: #16171c;
+    border: 1px solid #2d3039;
+    border-radius: 6px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+QProgressBar::chunk {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #2563eb, stop:1 #38bdf8);
+    border-radius: 5px;
+}

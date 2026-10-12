@@ -1,0 +1,161 @@
+# ============================================================
+#  NoDeskServerKit — 顶层 .gitignore
+#  包含子目录:
+#    - NoDeskServerKit_Client         (Qt6 + libVLC 客户端)
+#    - NoDeskServerKit_LinuxServers   (CMake C++17 服务端)
+# ============================================================
+
+# ---------- 通用构建产物 ----------
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dll
+*.dylib
+*.exe
+*.out
+*.elf
+*.bin
+*.app
+*.dmg
+*.pkg
+
+# 静态/共享库打包
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.idb
+*.tlog
+
+# ---------- C/C++ 编译中间产物 ----------
+*.gch
+*.pch
+*.d
+*.dep
+*.suo
+*.user
+*.user.*
+*.ncb
+*.opensdf
+*.sdf
+*.vcxproj.user
+
+# ---------- CMake ----------
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+build/
+build-*/
+out/
+cmake-build-*/
+**/build/
+**/build-*/
+**/out/
+
+# ---------- qmake / Qt ----------
+Makefile
+Makefile.*
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+qmake_*.cpp
+*.autosave
+
+# Qt Creator 工作区
+*.creator.user
+*.creator.user.*
+*.includes
+*.config
+*.files
+
+# ---------- libVLC / 第三方二进制资源 ----------
+# vlc_sdk 中的二进制库不应入库(每个开发者自行放置)
+vlc_sdk/sdk/lib/*.dll
+vlc_sdk/sdk/lib/*.dll.a
+vlc_sdk/sdk/lib/*.lib
+vlc_sdk/plugins/
+**/vlc_sdk/sdk/lib/*.dll
+**/vlc_sdk/sdk/lib/*.dll.a
+**/vlc_sdk/sdk/lib/*.lib
+**/vlc_sdk/plugins/
+
+# ---------- VS Code / IDE ----------
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# ---------- 编辑器临时/备份 ----------
+*~
+*.bak
+*.tmp
+*.temp
+*.orig
+*.rej
+*.log
+*.cache
+
+# ---------- 系统文件 ----------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ---------- 日志与运行时 ----------
+*.log
+logs/
+*.pid
+*.core
+core
+core.*
+vgcore.*
+*.stackdump
+
+# ---------- 测试输出 ----------
+*.gcda
+*.gcno
+*.gcov
+coverage/
+*.profraw
+*.profdata
+
+# ---------- 包管理 / 环境 ----------
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# ---------- 项目特定 ----------
+# 客户端的 autotest 程序输出
+autotest_out/
+*.tmp.mp4
+
+# 服务端运行时输出 (上传/下载临时文件等)
+upload_tmp/
+download_tmp/
+tmp/
+*.part
+*.download
